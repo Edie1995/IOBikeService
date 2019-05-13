@@ -189,7 +189,7 @@ public class Facade {
                 Equipment equipment, existEquipment;
                 equipment = factory.createNewEquipment(dataEquipment);
                 if ((existEquipment = searchFreeEquipment(equipment)) != null) {
-
+                    existEquipment.decreaseAmountEquipment();
                     return existClient.addEquipmentToService(dataService, existType, existEquipment);
                 }
                 return "Nie ma takiego wyposazenia";

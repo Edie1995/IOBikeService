@@ -64,13 +64,13 @@ public class Equipment {
         this.setOrderAmount(i);
     }
 
-    public boolean decreaseAmountEquipment() {
-        if (checkAvaliable()) {
+    public void decreaseAmountEquipment() {
+        //if (checkAvaliable()) {
             int i = this.getAmount();
             i--;
             this.setAmount(i);
-            return true; }
-        return false;
+            //return true; }
+        //return false;
     }
     public boolean checkAvaliable() {
         return (getAmount() > 0); }
