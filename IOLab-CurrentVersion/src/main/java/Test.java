@@ -84,6 +84,7 @@ public class Test {
         System.out.println(facade.addEquipmentToOrder(orderName, new String[]{"Kolo", "25.50"}));
         System.out.println("-----------------------------------------------------------------------\n");
 
+        
         //10. Zmiana stanu na zakonczony po wykaniu serwisu
         System.out.println(facade.changeOrderStatusToEnd(orderName));
         System.out.println(facade.getOrders().get(0));
@@ -91,6 +92,7 @@ public class Test {
         System.out.println(facade.getEquipments());
         System.out.println("-----------------------------------------------------------------------\n");
 
+        System.out.println(facade.getClients().get(0).getServices());
         // Mozemy sobie wypisac klientuw i przyporzadkowane do nich serwisy.
         System.out.println(facade.getClients());
 

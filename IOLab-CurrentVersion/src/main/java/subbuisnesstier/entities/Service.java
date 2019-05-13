@@ -12,8 +12,9 @@ public class Service {
     private LocalDate endTime;
     private ServiceType serviceType;
     private Client client;
-//    private final List<String> equipments = new ArrayList<>();
-    private final List<Equipment> equipments = new ArrayList<>(); //Konieczna zmian
+    private final List<String> equipmentsString = new ArrayList<>();
+    private final List<Equipment> equipments = new ArrayList<>();
+
     public String getName() {
         return name;
     }
@@ -62,11 +63,12 @@ public class Service {
     }
 
     public String addEquipment(Equipment equipment) {
-        if ((equipment.decreaseAmountEquipment())) {
+    //    if ((equipment.decreaseAmountEquipment())) {
             equipments.add(equipment);
+            equipmentsString.add(equipment._toString());
             return "Dodano wyposazenie do serwisu";
-        }
-        return "Brak wyposazenia";
+  ////      }
+       // return "Brak wyposazenia";
     }
 
     @Override
@@ -104,7 +106,7 @@ public class Service {
 
     @Override
     public String toString() {
-        return "Service{" + "name=" + name + ", status=" + status + ", endTime=" + endTime + ", serviceType=" + serviceType.getName() + '}';
+        return "Service{" + "name=" + name + ", status=" + status + ", endTime=" + endTime + ", serviceType=" + serviceType.getName() + ",equipments" + equipmentsString.toString() + '}';
     }
 
 }

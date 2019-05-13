@@ -126,8 +126,8 @@ public class Facade {
         Client client, existClient;
         client = factory.createClient(dataClient);
         if ((existClient = Facade.this.searchClient(client)) != null) {
-            ServiceType type = factory.createServiceType(dataServiceType),existtype;
-            if ((existtype=Facade.this.searchType(type)) != null) {
+            ServiceType type = factory.createServiceType(dataServiceType), existtype;
+            if ((existtype = Facade.this.searchType(type)) != null) {
                 return existClient.addService(dataService, existtype);
             }
             return "nie ma takiego typu!";
@@ -168,6 +168,16 @@ public class Facade {
         return null;
     }
 
+    public Equipment searchFreeEquipment(Equipment equipment) {
+        Equipment existEquipment;
+        if ((existEquipment = searchEquipment(equipment)) != null) {
+            if (existEquipment.checkAvaliable()) {
+                return existEquipment;
+            }
+        }
+        return null;
+    }
+
     public String addEquipmentToService(String[] dataClient, String[] dataServiceType, String[] dataService, String dataEquipment[]) {
         Factory factory = new Factory();
         Client client, existClient;
@@ -178,7 +188,7 @@ public class Facade {
             if ((existType = Facade.this.searchType(type)) != null) {
                 Equipment equipment, existEquipment;
                 equipment = factory.createNewEquipment(dataEquipment);
-                if ((existEquipment = searchEquipment(equipment)) != null) {
+                if ((existEquipment = searchFreeEquipment(equipment)) != null) {
 
                     return existClient.addEquipmentToService(dataService, existType, existEquipment);
                 }
@@ -200,7 +210,7 @@ public class Facade {
         if ((existOrder = Facade.this.searchOrders(order)) != null) {
             equipment = factory.createNewEquipment(dataEquipment);
             if ((existEquipment = searchEquipment(equipment)) != null) {
-                return existOrder.addEquipment(existEquipment,Integer.valueOf(dataEquipment[2]));
+                return existOrder.addEquipment(existEquipment, Integer.valueOf(dataEquipment[2]));
             } else {
                 return "Nie ma takiego produktu";
             }

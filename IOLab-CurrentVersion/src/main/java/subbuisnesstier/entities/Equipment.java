@@ -120,5 +120,8 @@ public class Equipment {
     public String toString() {
         return "Equipment{" + "name=" + name + ", amount=" + amount + ", orderAmount=" + orderAmount + ", price=" + price +  '}';
     }
-
+ 
+    public String _toString() {
+        return "Equipment{" + "name=" + name +  ", price=" + price +  '}';
+    }
 }
