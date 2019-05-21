@@ -7,7 +7,15 @@ public class ServiceType {
 
     private String name;
     private int defaultEndTime;
-    private ArrayList <Service> services = new ArrayList<>();
+    private ArrayList<Service> services = new ArrayList<>();
+
+    public ServiceType() {
+    }
+
+    public ServiceType(String name, String defaultEndTime) {
+        this.name = name;
+        this.defaultEndTime = Integer.parseInt(defaultEndTime);
+    }
 
     public ArrayList<Service> getServices() {
         return services;
@@ -16,11 +24,11 @@ public class ServiceType {
     public void setServices(ArrayList<Service> services) {
         this.services = services;
     }
-    
-    public void addServices(Service service){
+
+    public void addServices(Service service) {
         services.add(service);
     }
-    
+
     public String getName() {
         return name;
     }
@@ -72,7 +80,4 @@ public class ServiceType {
         return "ServiceType{" + "name=" + name + ", defaultEndTime=" + defaultEndTime + ", services=" + services + '}';
     }
 
-   
-
-   
 }

@@ -68,7 +68,7 @@ public class Test {
         System.out.println(facade.addEquipmentToService(clientData, serviceType1, service1, equipmentData2));
         System.out.println("-----------------------------------------------------------------------\n");
 
-        // 8. dodanie zamowienia do listy (zamowienia beda wykonywane gdy jakiegos ekwipunku nie bedzie na stanie)
+        // 8. dodanie zamowienia do listy (zamowienia beda wykonywane gdy jakiegos ekwipunku nie bedzie na stanie)
         System.out.println(facade.addOrder(orderName));
         System.out.println("-----------------------------------------------------------------------\n");
 

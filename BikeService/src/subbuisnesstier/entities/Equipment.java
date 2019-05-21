@@ -10,6 +10,15 @@ public class Equipment {
     private double price;
     private Order order;
 
+    public Equipment() {
+    }
+
+    public Equipment(String name, String price, String amount) {
+        this.name = name;
+        this.amount = Integer.parseInt(amount);
+        this.price = Double.parseDouble(price);
+    }
+
     public int getOrderAmount() {
         return orderAmount;
     }
@@ -25,7 +34,6 @@ public class Equipment {
     public void setOrder(Order order) {
         this.order = order;
     }
-
 
     public int getAmount() {
         return amount;
@@ -65,17 +73,14 @@ public class Equipment {
     }
 
     public void decreaseAmountEquipment() {
-        //if (checkAvaliable()) {
-            int i = this.getAmount();
-            i--;
-            this.setAmount(i);
-            //return true; }
-        //return false;
+        int i = this.getAmount();
+        i--;
+        this.setAmount(i);
     }
+
     public boolean checkAvaliable() {
-        return (getAmount() > 0); }
-
-
+        return (getAmount() > 0);
+    }
 
     public String checkOrder(Order order) {
         if (this.getOrder() == null) {
@@ -118,10 +123,10 @@ public class Equipment {
 
     @Override
     public String toString() {
-        return "Equipment{" + "name=" + name + ", amount=" + amount + ", orderAmount=" + orderAmount + ", price=" + price +  '}';
+        return "Equipment{" + "name=" + name + ", amount=" + amount + ", orderAmount=" + orderAmount + ", price=" + price + '}';
     }
- 
+
     public String _toString() {
-        return "Equipment{" + "name=" + name +  ", price=" + price +  '}';
+        return "Equipment{" + "name=" + name + ", price=" + price + '}';
     }
 }

@@ -4,15 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-
 public class Order {
 
+    private String name;
+    private Status status;
+    private final List<Equipment> equipments = new ArrayList<>();
 
-        private String name;
-        private Status status;
-        private final List<Equipment> equipments = new ArrayList<>();
-        public List<Equipment> getEquipments() {return equipments; }
-  
+    public Order() {
+    }
+
+    public Order(String name) {
+        this.name = name;
+        this.status = Status.PRZYJETE;
+    }
+
+    public List<Equipment> getEquipments() {
+        return equipments;
+    }
+
     public String getName() {
         return name;
     }
@@ -28,8 +37,6 @@ public class Order {
     public void setStatus(Status status) {
         this.status = status;
     }
-
-
 
     public String addEquipment(Equipment equipment, int amount) {
         if (equipment.checkOrder(null).equals("null")) {
@@ -79,5 +86,4 @@ public class Order {
         return "Order{" + "name=" + name + ", status=" + status + ", equipments=" + equipments + '}';
     }
 
-   
 }

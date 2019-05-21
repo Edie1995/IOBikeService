@@ -9,7 +9,7 @@ import subbuisnesstier.entities.Status;
 
 public class Factory {
 
-    public Order createOrder(String [] data) {
+    public Order createOrder(String[] data) {
         Order order = new Order();
         order.setName(data[0]);
         order.setStatus(Status.PRZYJETE);
@@ -31,25 +31,22 @@ public class Factory {
         equipment.setPrice(Double.parseDouble(data[1]));
         return equipment;
     }
-    
-    public ServiceType createServiceType(String[] data){
-      ServiceType serviceType = new ServiceType();
-      serviceType.setName(data[0]);
-      serviceType.setDefaultEndTime(Integer.valueOf(data[1]));
-      return serviceType;
-      
-    }
-    
-    public Service createService(String data[], ServiceType serviceType){
-    Service service = new Service();
-    service.setName(data[0]);
-    service.setStatus();
-    service.setServiceType(serviceType);
-    service.setEndTime(Integer.parseInt(data[1]));
-    return service;
-    }
-    
-    
 
+    public ServiceType createServiceType(String[] data) {
+        ServiceType serviceType = new ServiceType();
+        serviceType.setName(data[0]);
+        serviceType.setDefaultEndTime(Integer.valueOf(data[1]));
+        return serviceType;
+
+    }
+
+    public Service createService(String data[], ServiceType serviceType) {
+        Service service = new Service();
+        service.setName(data[0]);
+        service.setStatus();
+        service.setServiceType(serviceType);
+        service.setEndTime(Integer.parseInt(data[1]));
+        return service;
+    }
 
 }

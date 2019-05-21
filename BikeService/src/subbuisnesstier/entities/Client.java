@@ -17,6 +17,10 @@ public class Client {
         this.email = email;
     }
 
+    public Client() {
+
+    }
+
     public ArrayList<Service> getServices() {
         return services;
     }
@@ -58,27 +62,27 @@ public class Client {
         return null;
     }
 
-    public Service searchService(String dataService[], ServiceType type) {
-        Service help1, serviceExists;
-        Factory fabryka = new Factory();
-        help1 = fabryka.createService(dataService, type);
-        if ((serviceExists = searchService(help1)) != null) {
-            return serviceExists;
-        } else {
-            return null;
-        }
-    }
+//    public Service searchService(String dataService[], ServiceType type) {
+//        Service help1, serviceExists;
+//        Factory fabryka = new Factory();
+//        help1 = fabryka.createService(dataService, type);
+//        if ((serviceExists = searchService(help1)) != null) {
+//            return serviceExists;
+//        }
+//        return null;
+//
+//    }
 
     public String addService(String data[], ServiceType serviceType) {
         Factory factory = new Factory();
         Service service = factory.createService(data, serviceType);
         service.setClient(this);
         if (searchService(service) == null) {
-            serviceType.addServices(service);
             services.add(service);
+            serviceType.addServices(service);
             return service.toString();
         } else {
-            return "taki serwis juďż˝ istnieje!";
+            return "taki serwis juz istnieje!";
         }
     }
 

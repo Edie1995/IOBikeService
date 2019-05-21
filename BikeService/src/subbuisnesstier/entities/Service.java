@@ -15,6 +15,16 @@ public class Service {
     private final List<String> equipmentsString = new ArrayList<>();
     private final List<Equipment> equipments = new ArrayList<>();
 
+    public Service() {
+    }
+
+    public Service(String name, String endTime, ServiceType serviceType) {
+        this.name = name;
+        this.status = Status.PRZYJETE;
+        this.endTime = LocalDate.now().plusDays(serviceType.getDefaultEndTime()).plusDays(Integer.parseInt(endTime));
+        this.serviceType = serviceType;
+    }
+
     public String getName() {
         return name;
     }
@@ -57,17 +67,21 @@ public class Service {
         this.client = client;
     }
 
+    public List<Equipment> getEquipments() {
+        return equipments;
+    }
+
     public void changeStatus(Status status) {
         this.status = status;
 
     }
 
     public String addEquipment(Equipment equipment) {
-    
-            equipments.add(equipment);
-            equipmentsString.add(equipment._toString());
-            return "Dodano wyposazenie do serwisu";
-  
+
+        equipments.add(equipment);
+        equipmentsString.add(equipment._toString());
+        return "Dodano wyposazenie do serwisu";
+
     }
 
     @Override
@@ -105,7 +119,7 @@ public class Service {
 
     @Override
     public String toString() {
-        return "Service{" + "name=" + name + ", status=" + status + ", endTime=" + endTime + ", serviceType=" + serviceType.getName() + ",equipments" + equipmentsString.toString() + '}';
+        return "Service{" + "name=" + name + ", status=" + status + ", endTime=" + endTime + ", serviceType=" + serviceType.getName() + ",equipments" + equipmentsString.toString()+'}';
     }
 
 }
