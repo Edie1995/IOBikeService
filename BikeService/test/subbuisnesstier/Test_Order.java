@@ -9,6 +9,6 @@ package subbuisnesstier;
  *
  * @author Magda
  */
-public interface Test_Control {
+public interface Test_Order {
     
 }

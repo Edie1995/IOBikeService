@@ -3,16 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Uczelnia/6%20semestr/Inżyniera%20Oprogramowania/Laboratorium/IOBikeService-master/IOBikeService-master/BikeService/test/subbuisnesstier/FacadeTest.java</file>
-            <file>file:/D:/Uczelnia/6%20semestr/Inżyniera%20Oprogramowania/Laboratorium/IOBikeService-master/IOBikeService-master/BikeService/src/Test.java</file>
-            <file>file:/D:/Uczelnia/6%20semestr/Inżyniera%20Oprogramowania/Laboratorium/IOBikeService-master/IOBikeService-master/BikeService/test/subbuisnesstier/entities/EquipmentTest.java</file>
-            <file>file:/D:/Uczelnia/6%20semestr/Inżyniera%20Oprogramowania/Laboratorium/IOBikeService-master/IOBikeService-master/BikeService/src/subbuisnesstier/entities/Client.java</file>
-            <file>file:/D:/Uczelnia/6%20semestr/Inżyniera%20Oprogramowania/Laboratorium/IOBikeService-master/IOBikeService-master/BikeService/test/subbuisnesstier/entities/ClientTest.java</file>
-            <file>file:/D:/Uczelnia/6%20semestr/Inżyniera%20Oprogramowania/Laboratorium/IOBikeService-master/IOBikeService-master/BikeService/test/subbuisnesstier/entities/ServiceTest.java</file>
-            <file>file:/D:/Uczelnia/6%20semestr/Inżyniera%20Oprogramowania/Laboratorium/IOBikeService-master/IOBikeService-master/BikeService/test/subbuisnesstier/entities/OrderTest.java</file>
-            <file>file:/D:/Uczelnia/6%20semestr/Inżyniera%20Oprogramowania/Laboratorium/IOBikeService-master/IOBikeService-master/BikeService/src/subbuisnesstier/Facade.java</file>
-            <file>file:/D:/Uczelnia/6%20semestr/Inżyniera%20Oprogramowania/Laboratorium/IOBikeService-master/IOBikeService-master/BikeService/test/subbuisnesstier/entities/ServiceTypeTest.java</file>
-            <file>file:/D:/Uczelnia/6%20semestr/Inżyniera%20Oprogramowania/Laboratorium/IOBikeService-master/IOBikeService-master/BikeService/test/testData/Data.java</file>
+            <file>file:/C:/Users/tadga/OneDrive/Pulpit/IOBikeService-master/BikeService/src/subbuisnesstier/Facade.java</file>
+            <file>file:/C:/Users/tadga/OneDrive/Pulpit/IOBikeService-master/BikeService/src/subbuisnesstier/entities/Order.java</file>
+            <file>file:/C:/Users/tadga/OneDrive/Pulpit/IOBikeService-master/BikeService/test/subbuisnesstier/FacadeTest.java</file>
         </group>
     </open-files>
 </project-private>

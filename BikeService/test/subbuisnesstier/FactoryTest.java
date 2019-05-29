@@ -44,6 +44,7 @@ public class FactoryTest {
      * Test of createOrder method, of class Factory.
      */
     @Test
+    @Category(Test_Order.class)
     public void testCreateOrder() {
         System.out.println("createOrder");
         Factory instance = new Factory();
