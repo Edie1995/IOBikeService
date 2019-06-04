@@ -62,17 +62,6 @@ public class Client {
         return null;
     }
 
-//    public Service searchService(String dataService[], ServiceType type) {
-//        Service help1, serviceExists;
-//        Factory fabryka = new Factory();
-//        help1 = fabryka.createService(dataService, type);
-//        if ((serviceExists = searchService(help1)) != null) {
-//            return serviceExists;
-//        }
-//        return null;
-//
-//    }
-
     public String addService(String data[], ServiceType serviceType) {
         Factory factory = new Factory();
         Service service = factory.createService(data, serviceType);

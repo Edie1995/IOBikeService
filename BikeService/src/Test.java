@@ -1,10 +1,15 @@
 
+import java.util.Locale;
 import subbuisnesstier.Facade;
 
 public class Test {
 
     public static void main(String[] args) {
         Facade facade = new Facade();
+        String language = new String("en");
+        String country = new String("US");
+        Languages languages = new Languages();
+        facade.locale(languages.locale(language, country));
 
         //Przykladowa funkcjonalnosc programu
         //W pierwszym kroku nalezy podac dane klienta
@@ -12,7 +17,7 @@ public class Test {
         String[] clientData2 = {"Harry ", "Potter", "Harry123@gmail.com"};
         String[] clientData3 = {"Edyta", "Krukowska", "Eddie1995@gmail.com"};
         //Dany ekwipunek potrzebny do naprawy
-        String[] equipmentData2 = {"Plyn hamulcowy SHIMANO", "10","2"};
+        String[] equipmentData2 = {"Plyn hamulcowy SHIMANO", "10", "2"};
         // Numer zamowienia (domyslnie bedzie okreslany na podstawie bazy danych)
         String orderName[] = {"Zamowienie1"};
         String amount[] = {"2"};
@@ -22,7 +27,7 @@ public class Test {
         String service1[] = {"Serwis", "0"};
         String service2[] = {"Serwis2", "2"};
 
-        String[] equipmentData3 = {"Rower Gorski", "15.99","2"};
+        String[] equipmentData3 = {"Rower Gorski", "15.99", "2"};
 
         //Funkcjonalnosc serwisu krok po kroku:
         //1.Dodajemy klienta z podanymi danymi w clientData
@@ -84,7 +89,6 @@ public class Test {
         System.out.println(facade.addEquipmentToOrder(orderName, new String[]{"Kolo", "25.50"}));
         System.out.println("-----------------------------------------------------------------------\n");
 
-        
         //10. Zmiana stanu na zakonczony po wykaniu serwisu
         System.out.println(facade.changeOrderStatusToEnd(orderName));
         System.out.println(facade.getOrders().get(0));

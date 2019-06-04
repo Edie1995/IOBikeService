@@ -4,6 +4,8 @@ import subbuisnesstier.entities.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class Facade {
 
@@ -11,7 +13,13 @@ public class Facade {
     private final List<Order> orders = new ArrayList<>();
     private final ArrayList<ServiceType> servicesTypes = new ArrayList<>();
     private final ArrayList<Equipment> equipments = new ArrayList();
-
+    private ResourceBundle messages;
+    
+    public void locale(ResourceBundle messages){
+        //Locale currentLocale = new Locale(language, country);
+        this.messages = messages;
+    }
+    
     public ArrayList<Equipment> getEquipments() {
         return equipments;
     }
@@ -42,9 +50,9 @@ public class Facade {
         Client client1 = factory.createClient(data);
         if (searchClient(client1) == null) {
             clients.add(client1);
-            return client1.toString();
+            return messages.getString("dodaj_klienta.dodano");
         } else {
-            return "taki klient ju� istnieje";
+            return messages.getString("dodaj_klienta.istnieje");
         }
     }
 
@@ -72,9 +80,9 @@ public class Facade {
         Equipment equipment = factory.createNewEquipment(data);
         if (searchEquipment(equipment) == null) {
             equipments.add(equipment);
-            return equipment.toString();
+            return messages.getString("dodaj_narzedzie.dodano");
         } else {
-            return "istnieje ju� taki produkt";
+            return messages.getString("dodaj_narzedzie.istnieje");
         }
     }
 
@@ -83,9 +91,9 @@ public class Facade {
         Order order1 = factory.createOrder(data);
         if (searchOrders(order1) == null) {
             orders.add(order1);
-            return order1.toString();
+            return messages.getString("dodaj_zamowienie.dodano");
         } else {
-            return "istnieje ju� takie zam�wienie";
+            return messages.getString("dodaj_zamowienie.istnieje");
         }
     }
 
@@ -103,9 +111,9 @@ public class Facade {
         ServiceType type = factory.createServiceType(data);
         if (searchType(type) == null) {
             servicesTypes.add(type);
-            return type.toString();
+            return messages.getString("dodaj_typ_seriwsu.dodano");
         } else {
-            return "taki typ serwisu jest ju� w bazie";
+            return messages.getString("dodaj_typ_seriwsu.istnieje");
         }
     }
 
@@ -115,9 +123,9 @@ public class Facade {
         order = factory.createOrder(dataOrder);
         if ((existOrder = Facade.this.searchOrders(order)) != null) {
             existOrder.changeOrderStatusToEnd();
-            return "Zakonczono zamowienie";
+            return messages.getString("zakoncz_zamowienie.zakonczono");
         } else {
-            return "Nie ma takiego zamowienia";
+            return messages.getString("zakoncz_zamowienie.brak");
         }
     }
 
@@ -130,9 +138,9 @@ public class Facade {
             if ((existtype = Facade.this.searchType(type)) != null) {
                 return existClient.addService(dataService, existtype);
             }
-            return "nie ma takiego typu!";
+            return messages.getString("dodaj_serwis.brak_typu");
         }
-        return "nie ma takiego klienta!";
+        return messages.getString("dodaj_serwis.brak_klienta");
     }
 
     public Equipment searchEquipment(String dataEqupiment[]) {
@@ -150,12 +158,12 @@ public class Facade {
         Equipment equipment;
         if ((equipment = searchEquipment(dataEqupiment)) != null) {
             if (equipment.checkAvaliable()) {
-                return equipment.toString();
+                return messages.getString("sprawdz_dostepnosc.dostepne");
             } else {
-                return "Brak dostepnych narzedzi. Zloz zamowienie.";
+                return messages.getString("sprawdz_dostepnosc.brak_narzedzi");
             }
         } else {
-            return "Nie istnieje takie wyposazenie";
+            return messages.getString("sprawdz_dostepnosc.nieistniejace");
         }
     }
 
@@ -192,13 +200,13 @@ public class Facade {
                     existEquipment.decreaseAmountEquipment();
                     return existClient.addEquipmentToService(dataService, existType, existEquipment);
                 }
-                return "Nie ma takiego wyposazenia";
+                return messages.getString("dodaj_sprzet_do_serwisu.brak_wyposazenia");
 
             } else {
-                return "nie ma takiego typu!";
+                return messages.getString("dodaj_sprzet_do_serwisu.brak_typu");
             }
         } else {
-            return "nie ma takiego klienta!";
+            return messages.getString("dodaj_sprzet_do_serwisu.brak_klienta");
         }
     }
 
@@ -212,10 +220,10 @@ public class Facade {
             if ((existEquipment = searchEquipment(equipment)) != null) {
                 return existOrder.addEquipment(existEquipment, Integer.valueOf(dataEquipment[2]));
             } else {
-                return "Nie ma takiego produktu";
+                return messages.getString("dodaj_sprzet_do_zamowienia.brak_produktu");
             }
         } else {
-            return "Nie ma takiego zamowienia";
+            return messages.getString("dodaj_sprzet_do_zamowienia.brak_zamowienia");
         }
     }
 
