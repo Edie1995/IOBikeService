@@ -6,8 +6,8 @@ public class Test {
 
     public static void main(String[] args) {
         Facade facade = new Facade();
-        String language = new String("en");
-        String country = new String("US");
+        String language = new String("pl");
+        String country = new String("PL");
         Languages languages = new Languages();
         facade.locale(languages.locale(language, country));
 

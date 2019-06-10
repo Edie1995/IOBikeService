@@ -80,7 +80,7 @@ public class Service {
 
         equipments.add(equipment);
         equipmentsString.add(equipment._toString());
-        return "Dodano wyposazenie do serwisu";
+        return "3";
 
     }
 

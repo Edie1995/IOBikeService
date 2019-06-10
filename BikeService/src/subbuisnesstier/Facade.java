@@ -14,12 +14,12 @@ public class Facade {
     private final ArrayList<ServiceType> servicesTypes = new ArrayList<>();
     private final ArrayList<Equipment> equipments = new ArrayList();
     private ResourceBundle messages;
-    
-    public void locale(ResourceBundle messages){
+
+    public void locale(ResourceBundle messages) {
         //Locale currentLocale = new Locale(language, country);
         this.messages = messages;
     }
-    
+
     public ArrayList<Equipment> getEquipments() {
         return equipments;
     }
@@ -130,17 +130,22 @@ public class Facade {
     }
 
     public String addService(String[] dataClient, String[] dataServiceType, String[] dataService) {
+        String messagesService[] = new String[]{messages.getString("dodaj_serwis.istnieje"),
+            messages.getString("dodaj_serwis.dodano"),
+            messages.getString("dodaj_serwis.brak_typu"),
+            messages.getString("dodaj_serwis.brak_klienta")
+        };
         Factory factory = new Factory();
         Client client, existClient;
         client = factory.createClient(dataClient);
         if ((existClient = Facade.this.searchClient(client)) != null) {
             ServiceType type = factory.createServiceType(dataServiceType), existtype;
             if ((existtype = Facade.this.searchType(type)) != null) {
-                return existClient.addService(dataService, existtype);
+                return messagesService[Integer.parseInt(existClient.addService(dataService, existtype))];
             }
-            return messages.getString("dodaj_serwis.brak_typu");
+            return messagesService[2];
         }
-        return messages.getString("dodaj_serwis.brak_klienta");
+        return messagesService[3];
     }
 
     public Equipment searchEquipment(String dataEqupiment[]) {
@@ -187,6 +192,12 @@ public class Facade {
     }
 
     public String addEquipmentToService(String[] dataClient, String[] dataServiceType, String[] dataService, String dataEquipment[]) {
+        String messagesEquipment[] = new String[]{messages.getString("dodaj_sprzet_do_serwisu.brak_wyposazenia"),
+            messages.getString("dodaj_sprzet_do_serwisu.brak_typu"),
+            messages.getString("dodaj_sprzet_do_serwisu.brak_klienta"),
+            messages.getString("dodaj_sprzet_do_serwisu.dodano"),
+            messages.getString("dodaj_sprzet_do_serwisu.nie_ma")
+        };
         Factory factory = new Factory();
         Client client, existClient;
         client = factory.createClient(dataClient);
@@ -198,19 +209,24 @@ public class Facade {
                 equipment = factory.createNewEquipment(dataEquipment);
                 if ((existEquipment = searchFreeEquipment(equipment)) != null) {
                     existEquipment.decreaseAmountEquipment();
-                    return existClient.addEquipmentToService(dataService, existType, existEquipment);
+                    return messagesEquipment[Integer.parseInt(existClient.addEquipmentToService(dataService, existType, existEquipment))];
                 }
-                return messages.getString("dodaj_sprzet_do_serwisu.brak_wyposazenia");
+                return messagesEquipment[0];
 
             } else {
-                return messages.getString("dodaj_sprzet_do_serwisu.brak_typu");
+                return messagesEquipment[1];
             }
         } else {
-            return messages.getString("dodaj_sprzet_do_serwisu.brak_klienta");
+            return messagesEquipment[2];
         }
     }
 
     public String addEquipmentToOrder(String dataOrder[], String dataEquipment[]) {
+        String messagesEquipment[] = new String[]{messages.getString("dodaj_sprzet_do_zamowienia.brak_produktu"),
+            messages.getString("dodaj_sprzet_do_zamowienia.brak_zamowienia"),
+            messages.getString("dodaj_sprzet_do_zamowienia.dodano"),
+            messages.getString("dodaj_sprzet_do_zamowienia.juz_zamowiony")
+        };
         Factory factory = new Factory();
         Equipment equipment, existEquipment;
         Order existOrder, order;
@@ -218,12 +234,12 @@ public class Facade {
         if ((existOrder = Facade.this.searchOrders(order)) != null) {
             equipment = factory.createNewEquipment(dataEquipment);
             if ((existEquipment = searchEquipment(equipment)) != null) {
-                return existOrder.addEquipment(existEquipment, Integer.valueOf(dataEquipment[2]));
+                return messagesEquipment[Integer.parseInt(existOrder.addEquipment(existEquipment, Integer.valueOf(dataEquipment[2])))];
             } else {
-                return messages.getString("dodaj_sprzet_do_zamowienia.brak_produktu");
+                return messagesEquipment[0];
             }
         } else {
-            return messages.getString("dodaj_sprzet_do_zamowienia.brak_zamowienia");
+            return messagesEquipment[1];
         }
     }
 

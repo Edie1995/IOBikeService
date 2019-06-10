@@ -43,9 +43,9 @@ public class Order {
             equipment.setOrder(this);
             equipment.increaseOrderEquipmentAmount(amount);
             equipments.add(equipment);
-            return "dodano produkt do zamowienia";
+            return "2";
         }
-        return "taki obiekt zostal juz zamowiony";
+        return "3";
     }
 
     public void changeOrderStatusToEnd() {

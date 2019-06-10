@@ -69,9 +69,9 @@ public class Client {
         if (searchService(service) == null) {
             services.add(service);
             serviceType.addServices(service);
-            return service.toString();
+            return "1";
         } else {
-            return "taki serwis juz istnieje!";
+            return "0";
         }
     }
 
@@ -83,7 +83,7 @@ public class Client {
         if ((existService = searchService(service)) != null) {
             return existService.addEquipment(equipment);
         } else {
-            return "nie istnieje taki serwis";
+            return "4";
         }
     }
 
